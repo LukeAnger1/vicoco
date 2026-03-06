@@ -1,0 +1,13 @@
+# Load Verilog with a relative path
+read_verilog recursive_modules.v
+
+# Set top module
+hierarchy -top top_recursive -libdir .
+
+# Expose first layer
+# TODO: Add in hierarchy
+select -module top_recursive
+expose -evert-dff
+
+# Write modified Verilog
+write_verilog exposed_design.v
